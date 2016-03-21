@@ -1,0 +1,135 @@
+<template name="home">
+    {{#if currentUser}}
+        {{>addSite}}
+        <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+            <button class="btn-floating btn-large waves-effect waves-light red js-add-site-modal">
+                <i class="large material-icons">mode_edit</i>
+            </button>
+        </div>
+    {{/if}}
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m8 l6 push-l3 push-m2">
+                <div class="input-field">
+                    <input id="search" type="text" class="validate">
+                    <label for="search">Search</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {{#each list}}
+                <div class="col s12 m6 l6 xl4">
+                    <div class="card card-details-list hoverable">
+                        <div class="card-image waves-effect waves-block waves-light"
+                             style="background-image: url({{img}})">
+                            <img class="activator" src="{{img}}">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">
+                                <span>{{title}}</span>
+                                <i class="material-icons right">more_vert</i>
+                            </span>
+
+                            {{>vote}}
+                        </div>
+                        <div class="card-action">
+                            <a href="/details/{{_id}}">Details</a>
+                            <a target="_blank" href="{{link}}">view webpage</a>
+                            <span style="float: right" class="thin grey-text darken-1">
+                                {{getDate createdOn}}
+                            </span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">
+                                {{title}}<i class="material-icons right">close</i>
+                            </span>
+                            <p>{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+<template name="addSite">
+    <div id="add-site" class="modal modal-fixed-footer">
+        <form class="js-add-site">
+            <div class="modal-content">
+                <h4>Add website</h4>
+
+                <div class="row">
+                    <div class="col s6">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="link" name="link" type="url" class="validate" required>
+                                <label for="link">Url</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input placeholder="Name" id="name" name="name" type="text" class="validate" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input  placeholder="Image url" id="img_url" name="img_url" type="text" class="validate" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea placeholder="Description" id="description" name="description" class="materialize-textarea" required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="card card-details-list hoverable">
+                            <div class="card-image waves-effect waves-block waves-light"
+                                 style="background-image: url({{previewImgUrl}})">
+                                <img class="activator" src="{{previewImgUrl}}">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">
+                                    <span>{{previewTitle}}</span>
+                                    <i class="material-icons right">more_vert</i>
+                                </span>
+
+                                <div class="valign-wrapper">
+                                    <div class="col s4 left-align mobile-hidden">
+                                        <a class="btn-floating btn-flat waves-effect waves-light red tooltipped js-rate-remove"
+                                           data-position="right" data-tooltip="0 votes">
+                                            <i class="material-icons">remove</i>
+                                        </a>
+                                    </div>
+                                    <div class="col s6 valign flow-text center">
+                                        <span class="font-green">0 <span class="stringScore">Points</span></span>
+                                    </div>
+                                    <div class="col s4 right-align mobile-hidden">
+                                        <a class="btn-floating btn-flat waves-effect waves-light teal lighten-1 tooltipped js-rate-add"
+                                           data-position="left" data-tooltip="0 votes">
+                                            <i class="material-icons">add</i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-action">
+                                <a href="#!">Details</a>
+                                <a target="_blank" href="#!">view webpage</a>
+                            </div>
+                            <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">
+                                {{previewTitle}}<i class="material-icons right">close</i>
+                            </span>
+                                <p>{{previewDescription}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="waves-effect waves-green btn-flat">Add</button>
+            </div>
+        </form>
+    </div>
+</template>

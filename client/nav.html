@@ -1,0 +1,25 @@
+<template name="nav">
+    <div class="navbar-fixed">
+        <nav class="white">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo teal-text">
+                        <i class="fa fa-pied-piper-alt"></i>
+                        <!--<i class="material-icons dp48 left">language</i>-->
+                        <span class="thin">Web aggregator</span>
+                    </a>
+                    <ul class="right hide-on-med-and-down">
+                        <li>{{> atNavButton }}</li>
+                    </ul>
+                    <div class="side-nav" id="nav-mobile">
+                        {{> atNavButton }}
+                    </div>
+                    <a class="button-collapse teal-text" href="#" data-activates="nav-mobile">
+                        <i class="mdi-navigation-menu"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</template>
+

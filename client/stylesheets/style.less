@@ -1,0 +1,108 @@
+html {
+    min-height: 100%;
+}
+
+body {
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    min-height: 100%;
+}
+
+@media only screen and (min-width: 993px) {
+    .container {
+        width: 920px;
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    .row .col.xl4 {
+        width: 33.3333333333%;
+        margin-left: auto;
+        left: auto;
+        right: auto;
+    }
+}
+
+@media only screen and (min-width: 1350px) {
+    .container {
+        width: 85%;
+        max-width: 1300px;
+    }
+}
+
+.side-nav .btn {
+    color: #fff;
+}
+
+nav .brand-logo {
+    text-transform: uppercase;
+    i {
+        font-size: 62px;
+        line-height: 40px;
+        bottom: -7px;
+        position: relative;
+    }
+}
+
+.card-details {
+    img {
+        opacity: 0;
+    }
+    .card-image {
+        height: 500px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+.card-details-list {
+    img {
+        opacity: 0;
+    }
+    .card-image {
+        height: 250px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+.awesome {
+    font-family: FontAwesome;
+}
+
+.modal-signup {
+    max-width: 300px;
+}
+
+.comments {
+    .row {
+        padding: 10px;
+        position: relative;
+        margin: 0.5rem 0 1rem 0;
+        background-color: #fff;
+        transition: box-shadow .25s;
+        border-radius: 2px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        margin-bottom: 0;
+
+        & > section.col {
+            box-shadow: none;
+            width: 100%;
+        }
+        a.z-depth-2 {
+            box-shadow: none;
+        }
+    }
+}
+
+.card-title.activator > span {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 85%;
+}

@@ -1,0 +1,19 @@
+<template name="vote">
+    <div class="valign-wrapper">
+        <div class="col s4 left-align mobile-hidden">
+            <a class="btn-floating btn-flat waves-effect waves-light red tooltipped js-rate-remove {{checkVote _id}}"
+               data-position="right" data-tooltip="{{getValue vote_down}} votes">
+                <i class="material-icons">remove</i>
+            </a>
+        </div>
+        <div class="col s6 valign flow-text center">
+            <span class="font-green">{{getValue rating}} <span class="stringScore">Points</span></span>
+        </div>
+        <div class="col s4 right-align mobile-hidden">
+            <a class="btn-floating btn-flat waves-effect waves-light teal lighten-1 tooltipped js-rate-add {{checkVote _id}}"
+               data-position="left" data-tooltip="{{getValue vote_up}} votes">
+                <i class="material-icons">add</i>
+            </a>
+        </div>
+    </div>
+</template>
